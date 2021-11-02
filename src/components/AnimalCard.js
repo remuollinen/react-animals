@@ -7,11 +7,11 @@ function AnimalCard(props) {
 	return (
 		<Link to={`${match.url}/${props.name}`} className="animal-link">
 			<div className="card">
-				<h3>{props.name.replace("-", " ")}</h3>
 				<img
-					src={`https://source.unsplash.com/200x200/?${props.name}`}
+					src={`https://source.unsplash.com/1600x900/?${props.name}`}
 					alt={props.name}
 				/>
+				<h3>{props.name.replace("-", " ")}</h3>
 			</div>
 		</Link>
 	);
