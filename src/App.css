@@ -101,3 +101,14 @@ button {
 	padding: 0.5rem;
 	font-size: 1rem;
 }
+
+.inputWrapper {
+	width: 100%;
+	padding-bottom: 2rem;
+}
+
+input {
+	padding: 5px;
+	font-size: large;
+	border-radius: 5px;
+}

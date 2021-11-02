@@ -1,28 +1,52 @@
-import React from "react";
-import AnimalCard from "./AnimalCard";
+import React, { Component } from "react";
 import { animals } from "../animals";
-import { Switch, Route, useRouteMatch } from "react-router-dom";
+import AnimalCard from "./AnimalCard";
+
+import { Switch, Route } from "react-router-dom";
 import AnimalSingle from "./AnimalSingle";
 
-function AnimalList() {
-	const match = useRouteMatch();
+class AnimalList extends Component {
+	state = {
+		searchInput: "",
+	};
 
-	const animalsListing = animals.map((animal) => (
-		<AnimalCard key={animal.name} name={animal.name} />
-	));
+	searchInputHandler = (e) => {
+		this.setState({
+			searchInput: e.target.value,
+		});
+	};
 
-	return (
-		<>
-			<Switch>
-				<Route exact path={`${match.path}`}>
-					{animalsListing}
-				</Route>
-				<Route path={`${match.path}/:animal`}>
-					<AnimalSingle />
-				</Route>
-			</Switch>
-		</>
-	);
+	render() {
+		const filteredAnimals = animals.filter((animal) => {
+			return animal.name
+				.toLowerCase()
+				.includes(this.state.searchInput.toLowerCase());
+		});
+
+		const animalslisting = filteredAnimals.map((item) => (
+			<AnimalCard key={item.name} name={item.name} />
+		));
+
+		return (
+			<>
+				<Switch>
+					<Route exact path={this.props.path}>
+						<div className="inputWrapper">
+							<input
+								type="text"
+								onChange={this.searchInputHandler}
+								placeholder="Search for an animal"
+							/>
+						</div>
+						{animalslisting}
+					</Route>
+					<Route path={`${this.props.path}/:animal`}>
+						<AnimalSingle />
+					</Route>
+				</Switch>
+			</>
+		);
+	}
 }
 
 export default AnimalList;
