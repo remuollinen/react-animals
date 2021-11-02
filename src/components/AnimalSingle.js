@@ -7,7 +7,7 @@ function AnimalSingle() {
 
 	return (
 		<div className="animal-single">
-			<h2>This is the page for {animal}</h2>
+			<h2>This is the page for {animal.replace("-", " ")}</h2>
 			<div>
 				<button onClick={() => history.goBack()}>
 					Back to list of animals
