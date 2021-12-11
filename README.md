@@ -11,4 +11,4 @@
 
 ## Screenshot
 
-![Screenshot of Animals App]()
+![Screenshot of Animals App](screenshot.png)
