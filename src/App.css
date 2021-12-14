@@ -112,3 +112,26 @@ input {
 	font-size: large;
 	border-radius: 5px;
 }
+
+.animal-single {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.image-wrapper {
+	height: 300px;
+	width: 400px;
+	margin-bottom: 2rem;
+	border: 2px solid black;
+	border-radius: 5px;
+	box-shadow: 0 0 5px black;
+}
+
+.image-wrapper img {
+	height: 100%;
+	width: 100%;
+	-o-object-fit: cover;
+	object-fit: cover;
+}
